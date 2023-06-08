@@ -13,6 +13,9 @@ var velocity := Vector2(0,0)
 var face_direction := 1
 var x_dir := 1
 
+# SIGNALS -------------------------- #
+signal touch_powerup;
+
 export var max_speed: float = 560
 export var acceleration: float = 2880
 export var turning_acceleration : float = 9600
@@ -163,3 +166,8 @@ func timers(delta: float) -> void:
 	jump_coyote_timer -= delta
 	jump_buffer_timer -= delta
 
+func _on_Player_body_entered(body):
+	hide() # Player disappears after being hit.
+	emit_signal("touch_powerup")
+	# Must be deferred as we can't change physics properties on a physics callback.
+	$PowerupMap.set_deferred("disabled", true)
