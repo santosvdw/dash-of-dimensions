@@ -147,4 +147,3 @@ collision_use_parent = true
 collision_layer = 8
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 131075, 0, 0, 131076, 0, 0, 196611, 0, 0, 196612, 0, 0 )

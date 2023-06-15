@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/powerup_tile.png-f8ca0dee066bdf5c182fd5feb0cb9051.stex"
+path="res://.import/flagpole.png-1f5370de21414249e075f7c5a18d038a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/powerup_tile.png"
-dest_files=[ "res://.import/powerup_tile.png-f8ca0dee066bdf5c182fd5feb0cb9051.stex" ]
+source_file="res://Art/flagpole.png"
+dest_files=[ "res://.import/flagpole.png-1f5370de21414249e075f7c5a18d038a.stex" ]
 
 [params]
 
