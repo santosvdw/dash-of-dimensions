@@ -3,7 +3,7 @@
 [ext_resource path="res://Platforms/MovingPlatform.gd" type="Script" id=1]
 
 [node name="Platform" type="Node2D"]
-modulate = Color( 0.376471, 0.976471, 0.596078, 1 )
+modulate = Color( 0.376471, 0.682353, 0.976471, 1 )
 script = ExtResource( 1 )
 move_to = Vector2( 0, -64 )
 

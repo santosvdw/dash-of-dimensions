@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://HUD/HUD_info.gd" type="Script" id=1]
+[ext_resource path="res://Art/upheavtt.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="HUD_info" type="CanvasLayer"]
+visible = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0.00784314, 0.345098, 0.568627, 1 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.5
+margin_top = 75.0
+margin_right = 20.5
+margin_bottom = 119.0
+custom_fonts/font = SubResource( 1 )
+text = "12"
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -890.0
+margin_top = -477.0
+margin_right = -222.0
+margin_bottom = -414.0
+custom_fonts/font = SubResource( 2 )
+text = "Dash of dimensions"
+
+[node name="StartButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -260.0
+margin_top = -215.0
+margin_right = -64.0
+margin_bottom = -151.0
+custom_fonts/font = SubResource( 3 )
+text = "Start"
+
+[node name="GoBackButton" type="Button" parent="."]
+light_mask = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = -215.0
+margin_right = 272.0
+margin_bottom = -151.0
+custom_fonts/font = SubResource( 3 )
+text = "GO BACK"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Description" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -838.5
+margin_top = -325.0
+margin_right = 838.5
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "Dit is Dash of Dimensions, een multi-player platform game!!
+Dit spel bevat twee personages. De groene is de hoofdpersoon
+en de gele is de sidekick. Het spel volgt onze groene
+hoofdpersoon en de sidekick moet ervoor zorgen dat hij
+telkens aan zijn zijde blijft. Gedurende het spel zijn er
+verschillende punten die je kunt verzamelen. Het uiteindelijke
+doel is voor allebei de spelers om de ster aan te raken!"
+align = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

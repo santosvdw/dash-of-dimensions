@@ -9,6 +9,11 @@ func _input(_event: InputEvent) -> void:
 func new_game():
 	score = 0
 	$ScoreTimer.start()
+	$HUD_info.hide()
 
 func game_over():
 	$ScoreTimer.stop()
+	$HUD_end.show_game_finished()
+
+func info_screen():
+	$HUD_info.show()

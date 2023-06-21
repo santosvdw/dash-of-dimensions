@@ -7,7 +7,6 @@ extends KinematicBody2D
 # https://www.youtube.com/watch?v=2S3g8CgBG1g
 # Except for separate air and ground acceleration, as I don't think it's necessary.
 
-signal hit
 # BASIC MOVEMENT VARAIABLES ---------------- #
 var velocity := Vector2(0,0)
 var face_direction := 1
