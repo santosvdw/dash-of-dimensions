@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://HUD/HUD_end.gd" type="Script" id=1]
 [ext_resource path="res://Art/upheavtt.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 48
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 128
@@ -23,17 +19,6 @@ script = ExtResource( 1 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 color = Color( 0.00784314, 0.345098, 0.568627, 1 )
-
-[node name="ScoreLabel" type="Label" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.5
-margin_top = 75.0
-margin_right = 20.5
-margin_bottom = 119.0
-custom_fonts/font = SubResource( 1 )
-text = "12"
 
 [node name="Message" type="Label" parent="."]
 anchor_left = 0.5

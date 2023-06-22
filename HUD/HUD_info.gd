@@ -10,7 +10,6 @@ signal info_screen
 func _on_StartButton_pressed():
 	$StartButton.hide()
 	$Background.hide()
-	$ScoreLabel.show()
 	$Description.hide()
 	$Title.hide()
 	$Controls.hide()
@@ -25,5 +24,4 @@ func _on_InfoButton_pressed():
 	$StartButton.hide()
 	$Background.hide()
 	$InfoButton.hide()
-	$ScoreLabel.hide()
 	emit_signal("info_screen")

@@ -28,7 +28,6 @@ func _on_StartButton_pressed():
 	$Message.hide()
 	$Background.hide()
 	$InfoButton.hide()
-	$ScoreLabel.show()
 	emit_signal("start_game")
 
 
@@ -41,5 +40,4 @@ func _on_InfoButton_pressed():
 	$Message.hide()
 	$Background.hide()
 	$InfoButton.hide()
-	$ScoreLabel.hide()
 	emit_signal("info_screen")

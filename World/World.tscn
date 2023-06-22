@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Platforms/TileMap.tscn" type="PackedScene" id=2]
@@ -62,6 +62,10 @@ extents = Vector2( 64, 30 )
 [sub_resource type="DynamicFont" id=6]
 size = 128
 outline_color = Color( 0.0431373, 0.52549, 0.658824, 1 )
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 48
 font_data = ExtResource( 22 )
 
 [node name="World" type="Node2D"]
@@ -149,10 +153,7 @@ animation = "win"
 position = Vector2( 252, 971 )
 shape = SubResource( 4 )
 
-[node name="ScoreTimer" type="Timer" parent="."]
-
 [node name="HUD_start" parent="." instance=ExtResource( 19 )]
-visible = false
 
 [node name="HUD_info" parent="." instance=ExtResource( 20 )]
 
@@ -175,6 +176,17 @@ margin_right = 96.0
 margin_bottom = 195.0
 custom_fonts/font = SubResource( 6 )
 text = "<"
+
+[node name="ScoreLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="ScoreLayer"]
+visible = false
+anchor_right = 1.0
+margin_top = 73.0
+margin_bottom = 117.0
+custom_fonts/font = SubResource( 7 )
+text = "0"
+align = 1
 
 [node name="Points" type="Area2D" parent="."]
 position = Vector2( -170, 144 )
