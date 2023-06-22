@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Platforms/TileMap.tscn" type="PackedScene" id=2]
@@ -20,6 +20,9 @@
 [ext_resource path="res://Art/win_star_2.png" type="Texture" id=18]
 [ext_resource path="res://HUD/HUD_start.tscn" type="PackedScene" id=19]
 [ext_resource path="res://HUD/HUD_info.tscn" type="PackedScene" id=20]
+[ext_resource path="res://HUD/HUD_end.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Art/upheavtt.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://Points/Points.tscn" type="PackedScene" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -55,6 +58,11 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 64, 30 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 128
+outline_color = Color( 0.0431373, 0.52549, 0.658824, 1 )
+font_data = ExtResource( 22 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -127,7 +135,7 @@ position = Vector2( 512, 608 )
 target = NodePath("../Player")
 
 [node name="EndPoint" type="Area2D" parent="."]
-position = Vector2( 932, 21 )
+position = Vector2( -949, -343 )
 scale = Vector2( 0.5, 1 )
 script = ExtResource( 11 )
 
@@ -144,10 +152,97 @@ shape = SubResource( 4 )
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="HUD_start" parent="." instance=ExtResource( 19 )]
+visible = false
 
 [node name="HUD_info" parent="." instance=ExtResource( 20 )]
 
+[node name="HUD_end" parent="." instance=ExtResource( 21 )]
+
+[node name="ArrowRight" type="Label" parent="."]
+modulate = Color( 0.196078, 0.384314, 0.788235, 1 )
+margin_left = -82.0
+margin_top = 79.0
+margin_right = -24.0
+margin_bottom = 195.0
+custom_fonts/font = SubResource( 6 )
+text = ">"
+
+[node name="ArrowLeft" type="Label" parent="."]
+modulate = Color( 0.196078, 0.384314, 0.788235, 1 )
+margin_left = 38.0
+margin_top = 79.0
+margin_right = 96.0
+margin_bottom = 195.0
+custom_fonts/font = SubResource( 6 )
+text = "<"
+
+[node name="Points" type="Area2D" parent="."]
+position = Vector2( -170, 144 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Point" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( 2, 76 )
+scale = Vector2( 1, 1 )
+
+[node name="Point2" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( 28, 564 )
+scale = Vector2( 1, 1 )
+
+[node name="Point3" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( -1414, 152 )
+scale = Vector2( 1, 1 )
+
+[node name="Point4" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( -2670, 768 )
+scale = Vector2( 1, 1 )
+
+[node name="Point5" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( -3382, 444 )
+scale = Vector2( 1, 1 )
+
+[node name="Point6" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( -130, 1466 )
+scale = Vector2( 1, 1 )
+
+[node name="Point7" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( -2474, 88 )
+scale = Vector2( 1, 1 )
+
+[node name="Point8" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( 586, 1682 )
+scale = Vector2( 1, 1 )
+
+[node name="Point9" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( 2172, 912 )
+scale = Vector2( 1, 1 )
+
+[node name="Point10" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( 3870, 88 )
+scale = Vector2( 1, 1 )
+
+[node name="Point11" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( 3900, 1070 )
+scale = Vector2( 1, 1 )
+
+[node name="Point12" parent="Points" instance=ExtResource( 23 )]
+position = Vector2( 1544, 28 )
+scale = Vector2( 1, 1 )
+
 [connection signal="body_entered" from="EndPoint" to="EndPoint" method="_on_EndPoint_body_entered"]
+[connection signal="game_finished" from="EndPoint" to="." method="game_finished"]
 [connection signal="info_screen" from="HUD_start" to="." method="info_screen"]
 [connection signal="start_game" from="HUD_start" to="." method="new_game"]
 [connection signal="info_screen" from="HUD_info" to="." method="_on_HUD_info_info_screen"]
+[connection signal="start_game" from="HUD_end" to="." method="new_game"]
+[connection signal="point" from="Points/Point" to="." method="extra_point"]
+[connection signal="point" from="Points/Point2" to="." method="extra_point"]
+[connection signal="point" from="Points/Point3" to="." method="extra_point"]
+[connection signal="point" from="Points/Point4" to="." method="extra_point"]
+[connection signal="point" from="Points/Point5" to="." method="extra_point"]
+[connection signal="point" from="Points/Point6" to="." method="extra_point"]
+[connection signal="point" from="Points/Point7" to="." method="extra_point"]
+[connection signal="point" from="Points/Point8" to="." method="extra_point"]
+[connection signal="point" from="Points/Point9" to="." method="extra_point"]
+[connection signal="point" from="Points/Point10" to="." method="extra_point"]
+[connection signal="point" from="Points/Point11" to="." method="extra_point"]
+[connection signal="point" from="Points/Point12" to="." method="extra_point"]

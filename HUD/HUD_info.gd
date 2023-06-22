@@ -10,10 +10,10 @@ signal info_screen
 func _on_StartButton_pressed():
 	$StartButton.hide()
 	$Background.hide()
-	$GoBackButton.hide()
 	$ScoreLabel.show()
 	$Description.hide()
 	$Title.hide()
+	$Controls.hide()
 	emit_signal("start_game")
 
 

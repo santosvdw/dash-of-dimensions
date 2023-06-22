@@ -27,7 +27,6 @@ func _on_StartButton_pressed():
 	$StartButton.hide()
 	$Message.hide()
 	$Background.hide()
-	$InfoButton.hide()
 	$ScoreLabel.show()
 	emit_signal("start_game")
 

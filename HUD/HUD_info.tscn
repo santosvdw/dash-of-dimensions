@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://HUD/HUD_info.gd" type="Script" id=1]
 [ext_resource path="res://Art/upheavtt.ttf" type="DynamicFontData" id=2]
@@ -17,6 +17,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
 font_data = ExtResource( 2 )
 
 [node name="HUD_info" type="CanvasLayer"]
@@ -59,25 +63,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -260.0
-margin_top = -215.0
-margin_right = -64.0
-margin_bottom = -151.0
+margin_left = -98.0
+margin_top = -196.0
+margin_right = 98.0
+margin_bottom = -132.0
 custom_fonts/font = SubResource( 3 )
 text = "Start"
-
-[node name="GoBackButton" type="Button" parent="."]
-light_mask = 0
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = 6.0
-margin_top = -215.0
-margin_right = 272.0
-margin_bottom = -151.0
-custom_fonts/font = SubResource( 3 )
-text = "GO BACK"
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -101,6 +92,41 @@ telkens aan zijn zijde blijft. Gedurende het spel zijn er
 verschillende punten die je kunt verzamelen. Het uiteindelijke
 doel is voor allebei de spelers om de ster aan te raken!"
 align = 1
+
+[node name="Controls" type="Node2D" parent="."]
+
+[node name="Links" type="Label" parent="Controls"]
+margin_left = 511.0
+margin_top = 625.0
+margin_right = 681.0
+margin_bottom = 778.0
+custom_fonts/font = SubResource( 5 )
+text = "Links:
+
+GROEN: <
+GEEL: a  "
+
+[node name="Springen" type="Label" parent="Controls"]
+margin_left = 864.0
+margin_top = 625.0
+margin_right = 1062.0
+margin_bottom = 778.0
+custom_fonts/font = SubResource( 5 )
+text = "Springen:
+
+GROEN: ^
+GEEL: W"
+
+[node name="Rechts" type="Label" parent="Controls"]
+margin_left = 1220.0
+margin_top = 625.0
+margin_right = 1418.0
+margin_bottom = 778.0
+custom_fonts/font = SubResource( 5 )
+text = "Rechts:
+
+GROEN: >
+GEEL: D"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]

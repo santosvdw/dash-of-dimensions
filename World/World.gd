@@ -1,5 +1,5 @@
 extends Node2D
-var score
+var score = 0
 # Switching between fullscreen and not fullscreen by pressing esc
 
 func _input(_event: InputEvent) -> void:
@@ -10,10 +10,19 @@ func new_game():
 	score = 0
 	$ScoreTimer.start()
 	$HUD_info.hide()
+	$HUD_info.hide()
+	$Player.position.x = -1536
+	$Player.position.y = 704
+	$Player2.position.x = -1510
+	$Player2.position.y = 704
 
-func game_over():
+func game_finished():
 	$ScoreTimer.stop()
-	$HUD_end.show_game_finished()
+	$HUD_end.show()
 
 func info_screen():
 	$HUD_info.show()
+
+func extra_point():
+	score = score + 1
+	print(str(score))
