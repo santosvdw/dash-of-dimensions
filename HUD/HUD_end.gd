@@ -25,7 +25,7 @@ func show_game_finished(points):
 	$Background.show()
 	$StartButton.show()
 	show_points(points)
-	show_message("Je hebt gewonnen!")
+	show_message("Jullie hebben gewonnen!")
 
 func _on_StartButton_pressed():
 	hide_everything()

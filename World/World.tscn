@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://World/World.gd" type="Script" id=1]
 [ext_resource path="res://Platforms/TileMap.tscn" type="PackedScene" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://HUD/HUD_end.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Art/upheavtt.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://Points/Points.tscn" type="PackedScene" id=23]
+[ext_resource path="res://World/SwitchLeft.gd" type="Script" id=24]
+[ext_resource path="res://World/SwitchRight.gd" type="Script" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -67,6 +69,12 @@ font_data = ExtResource( 22 )
 [sub_resource type="DynamicFont" id=7]
 size = 48
 font_data = ExtResource( 22 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 3, 81 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 3, 78.75 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -156,6 +164,7 @@ shape = SubResource( 4 )
 [node name="HUD_start" parent="." instance=ExtResource( 19 )]
 
 [node name="HUD_info" parent="." instance=ExtResource( 20 )]
+visible = false
 
 [node name="HUD_end" parent="." instance=ExtResource( 21 )]
 visible = false
@@ -241,6 +250,23 @@ scale = Vector2( 1, 1 )
 position = Vector2( 1544, 28 )
 scale = Vector2( 1, 1 )
 
+[node name="SwitchPoints" type="Area2D" parent="."]
+
+[node name="Left" type="Area2D" parent="SwitchPoints"]
+script = ExtResource( 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwitchPoints/Left"]
+position = Vector2( -3, 142 )
+shape = SubResource( 8 )
+
+[node name="Right" type="Area2D" parent="SwitchPoints"]
+position = Vector2( -21, 67 )
+script = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwitchPoints/Right"]
+position = Vector2( 25, 76.25 )
+shape = SubResource( 9 )
+
 [connection signal="body_entered" from="EndPoint" to="EndPoint" method="_on_EndPoint_body_entered"]
 [connection signal="game_finished" from="EndPoint" to="." method="game_finished"]
 [connection signal="info_screen" from="HUD_start" to="." method="info_screen"]
@@ -259,3 +285,5 @@ scale = Vector2( 1, 1 )
 [connection signal="point" from="Points/Point10" to="." method="extra_point"]
 [connection signal="point" from="Points/Point11" to="." method="extra_point"]
 [connection signal="point" from="Points/Point12" to="." method="extra_point"]
+[connection signal="body_entered" from="SwitchPoints/Left" to="." method="_on_Left_body_entered"]
+[connection signal="body_entered" from="SwitchPoints/Right" to="." method="_on_SwitchRight_body_entered"]

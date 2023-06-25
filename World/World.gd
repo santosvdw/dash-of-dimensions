@@ -1,4 +1,8 @@
 extends Node2D
+signal switch_to_right
+signal switch_to_left
+
+var position_players = "left"
 var score = 0
 # Switching between fullscreen and not fullscreen by pressing esc
 
@@ -46,3 +50,23 @@ func extra_point():
 	score = score + 1
 	$ScoreLayer/ScoreLabel.text = str(score)
 	print(str(score))
+
+
+func _on_SwitchRight_body_entered(body):
+	if position_players == "right":
+		$Player.position.x = -100
+		$Player.position.y = 100
+		$Player2.position.x = -90
+		$Player2.position.y = 100
+		yield(get_tree().create_timer(0.5), "timeout")
+		position_players = "left"
+
+
+func _on_Left_body_entered(body):
+	if position_players == "left":
+		$Player.position.x = 60
+		$Player.position.y = 100
+		$Player2.position.x = 50
+		$Player2.position.y = 100
+		yield(get_tree().create_timer(0.3), "timeout")
+		position_players = "right"
