@@ -20,10 +20,23 @@ func new_game():
 	$Player2.position.y = 704
 	$ScoreLayer/ScoreLabel.show()
 	$EndPoint.new_game()
+	$Points/Point1.show()
+	$Points/Point2.show()
+	$Points/Point3.show()
+	$Points/Point4.show()
+	$Points/Point5.show()
+	$Points/Point6.show()
+	$Points/Point7.show()
+	$Points/Point8.show()
+	$Points/Point9.show()
+	$Points/Point10.show()
+	$Points/Point11.show()
+	$Points/Point12.show()
 
 func game_finished():
 	$ScoreLayer/ScoreLabel.hide()
 	$HUD_end.show()
+	$HUD_end.show_game_finished(score)
 
 func info_screen():
 	$ScoreLayer/ScoreLabel.hide()

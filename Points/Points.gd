@@ -2,8 +2,13 @@ extends Area2D
 signal point
 var hits = 0
 
-func _ready():
+func new_game():
 	show()
+	hits = 0
+
+func _ready():
+	new_game()
+	
 
 func _on_Point_body_entered(body):
 	hide()

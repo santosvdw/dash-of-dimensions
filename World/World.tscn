@@ -158,6 +158,7 @@ shape = SubResource( 4 )
 [node name="HUD_info" parent="." instance=ExtResource( 20 )]
 
 [node name="HUD_end" parent="." instance=ExtResource( 21 )]
+visible = false
 
 [node name="ArrowRight" type="Label" parent="."]
 modulate = Color( 0.196078, 0.384314, 0.788235, 1 )
@@ -192,7 +193,7 @@ align = 1
 position = Vector2( -170, 144 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Point" parent="Points" instance=ExtResource( 23 )]
+[node name="Point1" parent="Points" instance=ExtResource( 23 )]
 position = Vector2( 2, 76 )
 scale = Vector2( 1, 1 )
 
@@ -246,7 +247,7 @@ scale = Vector2( 1, 1 )
 [connection signal="start_game" from="HUD_start" to="." method="new_game"]
 [connection signal="info_screen" from="HUD_info" to="." method="_on_HUD_info_info_screen"]
 [connection signal="start_game" from="HUD_end" to="." method="new_game"]
-[connection signal="point" from="Points/Point" to="." method="extra_point"]
+[connection signal="point" from="Points/Point1" to="." method="extra_point"]
 [connection signal="point" from="Points/Point2" to="." method="extra_point"]
 [connection signal="point" from="Points/Point3" to="." method="extra_point"]
 [connection signal="point" from="Points/Point4" to="." method="extra_point"]
